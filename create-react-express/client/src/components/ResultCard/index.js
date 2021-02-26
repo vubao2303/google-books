@@ -7,7 +7,7 @@ function ResultCard (){
       
       <p> author </p>
       <p> desctiptions </p>
-      <img src="" alt=""> image here </img>
+      <img src="" alt=""/>
       <button type= "button"> view</button>
       <button type= "button"> save </button>
     </div>

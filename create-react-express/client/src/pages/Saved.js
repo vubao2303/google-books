@@ -1,13 +1,12 @@
 import React from "react";
-import Search from "../components/Search";
+import SavedBooks from "../components/Saved";
+import Result from "../components/Result";
 
-function Saved(props) {
+
+function Saved() {
   return (
     <div>
-        <Search />
-        <Result 
-        bookData = {props}
-        />
+        <SavedBooks />
     </div>
   );
 }

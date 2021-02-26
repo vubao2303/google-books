@@ -12,8 +12,8 @@ function App() {
       <Nav />
       <Header />
       <Switch>
-      <Route path="/" render={() => <Saved/>} />
-        <Route path="/Saved" render={() => <Saved/>} />
+        <Route exact path="/" render={() => <Saved />} />
+        <Route exact path="/Save" render={() => <Saved />} />
         <Route exact path="/search" component={Search} />
         <Route component={NoMatch} />
       </Switch>

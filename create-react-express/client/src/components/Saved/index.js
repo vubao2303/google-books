@@ -1,11 +1,11 @@
 import React from "react";
-import SavedCard from "./SavedCard";
+import SavedCard from "../SavedCard";
 
-function Save (){
+function Saved (){
   return (
     <div className= "container"> 
       < SavedCard />
     </div>
   )
 }
-export default Save;
+export default Saved;
