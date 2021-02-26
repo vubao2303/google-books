@@ -1,12 +1,12 @@
 import React from "react";
-import Search from "../components/Search";
+import SavedBooks from "../components/Saved";
 import Result from "../components/Result";
 
 
 function Saved() {
   return (
     <div>
-        <Result />
+        <SavedBooks />
     </div>
   );
 }
