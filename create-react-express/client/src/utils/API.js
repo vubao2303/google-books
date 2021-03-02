@@ -3,6 +3,25 @@ import axios from "axios";
 // Export an object containing methods we'll use for accessing the random user API
 export default {
 
+
+  getBooksLocal: function() {
+    return axios.get("/api/books");
+  },
+
+  getBook: function(id) {
+    return axios.get("/api/books" + id);
+  },
+
+  deleteBook: function(id) {
+    return axios.delete("/api/books/" + id);
+  },
+
+  saveBook: function(bookData) {
+    return axios.post("/api/books", bookData);
+  },
+
+  
+
   getBooks: function (books) {
     return new Promise((resolve, reject) => {
       const Query = "https://www.googleapis.com/books/v1/volumes?q=" + books;
