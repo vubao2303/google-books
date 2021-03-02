@@ -22,7 +22,7 @@ function Saved() {
   },[] )
 // console.log (books)
 // add function delete books
-  function deleteBook() {
+  function deleteBook(id) {
     // call api delete book function 
     API.deleteBook(id)
     .then((res) => saveBook()) 
@@ -41,6 +41,8 @@ function Saved() {
           author={book.author}
           synopsis={book.synopsis}
           link={book.link}
+          // insert onclick function to pass as prop
+          onClick={()=> deleteBook(book._id)}
          
         />
         )
