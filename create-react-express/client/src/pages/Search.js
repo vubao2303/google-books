@@ -6,8 +6,10 @@ import Result from "../components/Result";
 function Search() {
   return (
     <div>
+
         <SearchBook />
-        <Result />
+
+        {/* <Result /> */}
     </div>
   );
 }
