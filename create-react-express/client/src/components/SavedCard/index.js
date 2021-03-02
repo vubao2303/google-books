@@ -8,10 +8,9 @@ function SavedCard (props){
     <p> {props.synopsis} </p>
     <img src={props.image} alt="" />
     <a href={props.link} target="_blank" > <button type="button"> view</button> </a>
-    <button type="button" onClick={(event) => {
-      event.preventDefault();
-      props.saveBooks({ title: props.title, author: props.author, synopsis: props.synopsis, image: props.image, link: props.link});
-    }}> Delete </button>
+    {/* pass onlick prop,  that will activate deletebook function */}
+    <button type="button" onClick={props.onClick}
+    > Delete </button>
   </div>
   )
 }

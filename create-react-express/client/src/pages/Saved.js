@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { use } from "../../../routes/api";
 import SavedCard from "../components/SavedCard";
 import API from "../utils/API";
 // import Result from "../components/Result";
@@ -13,8 +14,21 @@ function Saved() {
     })
       .catch(err => console.log(err));
   };
-saveBook();
+// set the state to save book
+// save book loads all the book in saved db
+  useEffect(() => {
+    saveBook()
+  
+  },[] )
 // console.log (books)
+// add function delete books
+  function deleteBook(id) {
+    // call api delete book function 
+    API.deleteBook(id)
+    .then((res) => saveBook()) 
+    
+    .catch(err => console.log(err))
+  };
   return (
     
     <div>
@@ -27,6 +41,8 @@ saveBook();
           author={book.author}
           synopsis={book.synopsis}
           link={book.link}
+          // insert onclick function to pass as prop
+          onClick={()=> deleteBook(book._id)}
          
         />
         )
