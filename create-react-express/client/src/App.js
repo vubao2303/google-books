@@ -11,6 +11,7 @@ function App() {
     <Router >
       <Nav />
       <Header />
+      <Search />
       <Switch>
         <Route exact path="/" render={() => <Saved />} />
         <Route exact path="/Save" render={() => <Saved />} />

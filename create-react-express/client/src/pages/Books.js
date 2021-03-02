@@ -46,7 +46,7 @@ function Books() {
   // }
   return (
     <div>
-      <Search onSubmit={loadBooks} />
+      <Search onSubmit={loadBooks()} />
 
       {books.map((book) => {
         return (<div> <Results
