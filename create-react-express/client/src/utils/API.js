@@ -3,7 +3,7 @@ import axios from "axios";
 // Export an object containing methods we'll use for accessing the random user API
 export default {
 
-  getBooks: function(books) {
+  getBooks: function (books) {
     return new Promise((resolve, reject) => {
       const Query = "https://www.googleapis.com/books/v1/volumes?q=" + books;
       console.log(Query)
@@ -11,20 +11,31 @@ export default {
         const booksdata = res.data.items;
         const results = booksdata.map((book) => {
           console.log(book)
-          return {
-            title:book.volumeInfo.title,
-            author:book.volumeInfo.author,
-            image:book.volumeInfo.imageLinks.thumbnail,
-            synopsis: book.volumeInfo.description,
-            link: book.volumeInfo.infoLink
-          };
+          if (book.volumeInfo.imageLinks === undefined) {
+            return {
+              title: book.volumeInfo.title,
+              author: book.volumeInfo.author,
+              image: "https://via.placeholder.com/130x200.png",
+              synopsis: book.volumeInfo.description,
+              link: book.volumeInfo.infoLink
+            }
+          }
+          else {
+            return {
+              title: book.volumeInfo.title,
+              author: book.volumeInfo.author,
+              image: book.volumeInfo.imageLinks.thumbnail,
+              synopsis: book.volumeInfo.description,
+              link: book.volumeInfo.infoLink
+            };
+          }
         });
         resolve(results);
       }).catch((err) => reject(err));
     });
   },
-  getBookList: function (){
-    return new Promise((resolve)=>{
+  getBookList: function () {
+    return new Promise((resolve) => {
       resolve();
     })
   },
