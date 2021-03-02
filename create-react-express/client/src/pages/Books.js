@@ -10,7 +10,7 @@ function Books() {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
   const [result, setResult] = useState({});
-  console.log (books)
+  // console.log (books)
   // useEffect(()=>{
   //   loadBooks();
   // },[search])
@@ -26,9 +26,9 @@ function Books() {
   // this will incorperate the name of the search 
   function loadBooks(event) {
     event.preventDefault();
-    console.log("loadedbooks")
+    // console.log("loadedbooks")
     var searchName = event.target.value;
-    if(searchName===""){
+    if (searchName === "") {
       setBooks([]);
     }
 
@@ -38,6 +38,18 @@ function Books() {
       });
     })
       .catch(err => console.log(err));
+  }
+
+  function saveBooks(bookData) {
+    console.log(bookData);
+    API.saveBook({
+      title: bookData.title,
+      author: bookData.author,
+      synopsis: bookData.synopsis,
+      image: bookData.image,
+      link: bookData.link
+    })
+      .catch(err => console.log(err))
   }
 
 
@@ -55,14 +67,16 @@ function Books() {
       <SearchForm loadBooks={loadBooks} />
 
       {books.map((book, index) => {
-        return ( <Result
-          key= {index}
+        return (<Result
+          key={index}
           title={book.title}
           image={book.image}
           author={book.author}
           synopsis={book.synopsis}
-          link= {book.link} />
-        
+          link={book.link}
+          saveBooks={saveBooks}
+        />
+
         )
       })}
 
