@@ -1,15 +1,16 @@
 // ok, this is where all the shenanigans happen
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import Search from '../components/Search';
-import Results from '../components/Results';
+import SearchForm from '../components/SearchForm';
+import Result from '../components/ResultCard';
+
 
 function Books() {
   // ?set state 
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
   const [result, setResult] = useState({});
-
+  console.log (books)
   // useEffect(()=>{
   //   loadBooks();
   // },[search])
@@ -24,8 +25,13 @@ function Books() {
   // }
   // this will incorperate the name of the search 
   function loadBooks(event) {
+    event.preventDefault();
     console.log("loadedbooks")
     var searchName = event.target.value;
+    if(searchName===""){
+      setBooks([]);
+    }
+
     API.getBookList().then(() => {
       API.getBooks(searchName).then((books) => {
         setBooks(books)
@@ -46,15 +52,17 @@ function Books() {
   // }
   return (
     <div>
-      <Search onSubmit={loadBooks()} />
+      <SearchForm loadBooks={loadBooks} />
 
-      {books.map((book) => {
-        return (<div> <Results
+      {books.map((book, index) => {
+        return ( <Result
+          key= {index}
           title={book.title}
           image={book.image}
           author={book.author}
-          synopsis={book.synopsis} />
-        </div>
+          synopsis={book.synopsis}
+          link= {book.link} />
+        
         )
       })}
 

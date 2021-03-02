@@ -1,14 +1,14 @@
 import React from "react";
 
-function ResultCard ({title, image,author,synopsis}){
+function ResultCard (props){
   return (
-    <div> 
-      <h2>{title}</h2>
+    <div className= "container"> 
+      <h2>{props.title}</h2>
       
-      <p> {author} </p>
-      <p> {synopsis} </p>
-      <img src={image} alt=""/>
-      <button type= "button"> view</button>
+      <p> {props.author} </p>
+      <p> {props.synopsis} </p>
+      <img src={props.image} alt=""/>
+      <a  href = {props.link} target="_blank" > <button type= "button"> view</button> </a>
       <button type= "button"> save </button>
     </div>
   )

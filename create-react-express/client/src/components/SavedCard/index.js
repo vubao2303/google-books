@@ -7,7 +7,7 @@ function SavedCard (){
       
       <p> author </p>
       <p> desctiptions </p>
-      <img src="" alt="" image here />
+      <img src="#" alt="" />
       <button type= "button"> view</button>
       <button type= "button"> delete </button>
     </div>

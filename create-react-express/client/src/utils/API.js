@@ -3,25 +3,20 @@ import axios from "axios";
 // Export an object containing methods we'll use for accessing the random user API
 export default {
 
-  // dont need do this 
-  // SearchBook: function (){
-  //   return axios.get (
-  //     "https://randomuser.me/api/?inc=picture,name,email,phone,dob"
-  //   )
-  // },
-  
   getBooks: function(books) {
     return new Promise((resolve, reject) => {
       const Query = "https://www.googleapis.com/books/v1/volumes?q=" + books;
-      cosole.log(Query)
+      console.log(Query)
       axios.get(Query).then((res) => {
         const booksdata = res.data.items;
         const results = booksdata.map((book) => {
+          console.log(book)
           return {
             title:book.volumeInfo.title,
             author:book.volumeInfo.author,
-            image:book.volumeInfo.imageLinks.thumnail,
-            synopsis: book.volumeInfo.description
+            image:book.volumeInfo.imageLinks.thumbnail,
+            synopsis: book.volumeInfo.description,
+            link: book.volumeInfo.infoLink
           };
         });
         resolve(results);
@@ -33,7 +28,6 @@ export default {
       resolve();
     })
   },
-
 }
 
 

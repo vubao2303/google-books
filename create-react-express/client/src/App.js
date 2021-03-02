@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Saved from "./pages/Saved";
-import Search from "./pages/Search";
+import Books from "./pages/Books";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
@@ -11,16 +11,15 @@ function App() {
     <Router >
       <Nav />
       <Header />
-      <Search />
+     
       <Switch>
-        <Route exact path="/" render={() => <Saved />} />
+        <Route exact path="/" render={() => <Books />} />
         <Route exact path="/Save" render={() => <Saved />} />
-        <Route exact path="/search" component={Search} />
+        <Route exact path="/search" component={Books} />
         <Route component={NoMatch} />
       </Switch>
     </Router>
   );
 }
-
 
 export default App;
