@@ -1,20 +1,25 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Saved from "./pages/Saved";
+import Books from "./pages/Books";
+import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    <Router >
+      <Nav />
+      <Header />
+     
+      <Switch>
+        <Route exact path="/" render={() => <Books />} />
+        <Route exact path="/Save" render={() => <Saved />} />
+        <Route exact path="/search" component={Books} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Router>
   );
 }
-
 
 export default App;
