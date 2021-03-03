@@ -1,13 +1,13 @@
 # Google-Book
 Full stack React-app - MERN
+A book search engine that utilizes Google's Books API, which allows the user to search for a book (initially by title, but I found that author works as well) which they can save to a 'saved books list' or view the book(s) in the Google Play Store. The application displays a picture of the cover accompanied by the title, author(s), and a brief description.
+
 M - MongoDB: A document-based open source database
 E - Express: A Fast, unopinionated, minimalist web framework for Node.js
 N - Node.js: Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js brings JavaScript to the server
 R - React: A JavaScript front-end library for building user interfaces
 
-A book search engine that utilizes Google's Books API, which allows the user to search for a book (initially by title, but I found that author works as well) which they can save to a 'saved books list' or view the book(s) in the Google Play Store. The application displays a picture of the cover accompanied by the title, author(s), and a brief description.
-
-![Site Picture](public/css/pictures/readme.png)  
+![Site Picture](./client/src/components/Style/googleBook.png)  
 
 ## Table of Contents 
 
@@ -21,7 +21,7 @@ A book search engine that utilizes Google's Books API, which allows the user to 
 
 ## Heroku-Deployed
 
-[Deployed Link](https://vu-portfolio.herokuapp.com/)
+[Deployed Link](https://b-google-books-react.herokuapp.com/)
 
 ## Description of Page Building 
 * M - MongoDB: A document-based open source database
