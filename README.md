@@ -51,7 +51,6 @@ R - React: A JavaScript front-end library for building user interfaces
 * N- Node.js: Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js brings JavaScript to the server
 * <ul> 
   <li> Controllers act as an interface between Model and View components to process all the business logic and incoming requests,
-  <li> 
   </li>
   </ul>
 
